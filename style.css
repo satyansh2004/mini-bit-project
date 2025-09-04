@@ -1,0 +1,313 @@
+@import url('https://fonts.googleapis.com/css2?family=Libertinus+Sans:ital,wght@0,400;0,700;1,400&family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Libertinus Sans", sans-serif;
+}
+
+#nav {
+    padding: 20px 0px;
+    text-align: center;
+    background-color: #333;
+    color: #f1f1f1;
+    box-shadow: 1px 1px 2px 2px #333;
+}
+
+#nav span {
+    font-size: 20px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+div#header_data {
+    margin: 40px auto;
+    width: fit-content;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+div#header_data h1 {
+    font-size: 40px;
+}
+
+div#header_data p {
+    font-size: 20px;
+}
+
+div#main_app {
+    margin: 10px auto;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    border: 1px solid #b6b6b6;
+    border-radius: 4px;
+    padding: 30px;
+    width: 50%;
+    justify-content: center;
+}
+
+.btn {
+    padding: 10px 0px;
+    text-align: center;
+    border: 0px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+#gen {
+    background-color: #ff1414d5;
+    color: #f1f1f1;
+    font-size: 20px;
+    width: 100%;
+    transition: all 0.3s;
+}
+
+#gen:hover {
+    box-shadow: 0px 2px 3px 0px #ff1f1fd5;
+}
+
+:root {
+    --bg: #0f1724;
+    --card: linear-gradient(180deg, rgba(255, 255, 255, 0.02), rgba(255, 255, 255, 0.01));
+    --accent: #ef4444;
+    /* PDF-red */
+    --muted: rgba(255, 255, 255, 0.55);
+    --glass: rgba(255, 255, 255, 0.03);
+    --radius: 14px;
+    --shadow: 0 8px 30px rgba(2, 6, 23, 0.6);
+    --max-width: 520px;
+    --gap: 14px;
+    --focus: 0 0 0 4px rgba(239, 68, 68, 0.12);
+}
+
+/* Container */
+.pdf-upload {
+    max-width: var(--max-width);
+    width: 100%;
+    margin: 0.75rem auto;
+    background: var(--card);
+    border-radius: var(--radius);
+    box-shadow: 0px 5px 8px 0px rgba(2, 6, 23, 0.6);
+    padding: calc(var(--gap) * 1.25);
+    box-sizing: border-box;
+    font-family: Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+    color: white;
+    backdrop-filter: blur(6px) saturate(1.1);
+}
+
+/* Hide native file input but keep it accessible */
+.pdf-upload input[type="file"] {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    padding: 0;
+    border: 0;
+    clip: rect(0 0 0 0);
+    clip-path: inset(50%);
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+/* Label acts as the visible input surface */
+.pdf-label {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 18px;
+    border-radius: 12px;
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.015), rgba(255, 255, 255, 0.01));
+    border: 1px dashed rgba(255, 255, 255, 0.06);
+    cursor: pointer;
+    transition: transform 180ms ease, border-color 180ms ease, box-shadow 180ms ease;
+    user-select: none;
+}
+
+/* Icon (uses emoji fallback) */
+.pdf-label .pdf-icon {
+    flex: 0 0 56px;
+    height: 56px;
+    border-radius: 10px;
+    display: grid;
+    place-items: center;
+    font-size: 22px;
+    background: linear-gradient(135deg, rgba(239, 68, 68, 0.12), rgba(239, 68, 68, 0.06));
+    border: 1px solid rgba(239, 68, 68, 0.12);
+    box-shadow: 0 6px 18px rgba(239, 68, 68, 0.06);
+    color: var(--accent);
+}
+
+/* Use pseudo-content for a crisp icon fallback */
+.pdf-label .pdf-icon::before {
+    content: "📄";
+    display: block;
+    line-height: 1;
+}
+
+/* Text block */
+.pdf-label .pdf-text {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    color: var(--muted);
+    min-width: 0;
+}
+
+.pdf-label .pdf-text strong {
+    font-size: 15px;
+    color: #333;
+    letter-spacing: -0.1px;
+}
+
+.pdf-label .pdf-text small {
+    font-size: 12px;
+    opacity: 0.85;
+    color: #333;
+}
+
+/* Hover / focus styles */
+.pdf-label:hover {
+    transform: translateY(-4px);
+    border-color: rgba(255, 255, 255, 0.12);
+    box-shadow: 0px 5px 8px 0px rgba(2, 6, 23, 0.6);
+}
+
+.pdf-upload input[type="file"]:focus+.pdf-label,
+.pdf-upload:focus-within .pdf-label {
+    outline: none;
+    box-shadow: var(--focus);
+    border-color: rgba(239, 68, 68, 0.22);
+}
+
+/* Drag-over state (toggle .dragover on .pdf-upload when dragging) */
+.pdf-upload.dragover .pdf-label {
+    border-style: solid;
+    border-color: rgba(239, 68, 68, 0.28);
+    background: linear-gradient(180deg, rgba(239, 68, 68, 0.03), rgba(255, 255, 255, 0.01));
+    transform: translateY(-2px) scale(1.01);
+}
+
+/* Meta area: file name and actions */
+.pdf-meta {
+    margin-top: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.pdf-list {
+    min-height: 34px;
+    flex: 1 1 auto;
+    color: var(--muted);
+    font-size: 13px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    overflow: hidden;
+}
+
+/* Single file pill */
+.pdf-list .file-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 8px 10px;
+    background: rgba(255, 255, 255, 0.03);
+    border-radius: 999px;
+    border: 1px solid rgba(255, 255, 255, 0.03);
+    font-size: 13px;
+    color: #e6edf3;
+    max-width: 100%;
+}
+
+.pdf-list .file-pill .name {
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    max-width: 280px;
+}
+
+/* Remove button */
+.pdf-list .file-pill button {
+    appearance: none;
+    border: 0;
+    background: transparent;
+    padding: 4px;
+    cursor: pointer;
+    opacity: 0.85;
+    font-size: 14px;
+    color: var(--muted);
+}
+
+/* Progress bar (hidden by default; show with JS by adding .active) */
+.pdf-progress {
+    width: 100%;
+    height: 8px;
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.03);
+    overflow: hidden;
+    margin-top: 10px;
+    display: none;
+}
+
+.pdf-progress.active {
+    display: block;
+}
+
+/* inner progress fill is applied via inline style width or class */
+.pdf-progress .bar {
+    height: 100%;
+    width: 0%;
+    transition: width 300ms ease;
+    background: linear-gradient(90deg, rgba(239, 68, 68, 1), rgba(255, 120, 120, 0.9));
+    box-shadow: 0 6px 18px rgba(239, 68, 68, 0.08) inset;
+}
+
+/* Error state */
+.pdf-upload.error .pdf-label {
+    border-color: rgba(255, 78, 78, 0.28);
+    box-shadow: 0 12px 30px rgba(255, 78, 78, 0.06);
+}
+
+.pdf-upload .hint {
+    margin-top: 10px;
+    font-size: 12px;
+    color: rgba(255, 255, 255, 0.6);
+}
+
+/* Responsive tweaks */
+@media (max-width: 520px) {
+    .pdf-label {
+        padding: 14px;
+        gap: 10px;
+    }
+
+    .pdf-label .pdf-icon {
+        width: 48px;
+        height: 48px;
+    }
+
+    .pdf-list .file-pill .name {
+        max-width: 160px;
+    }
+}
+
+/* Utility: small subtle outline for keyboard users */
+.pdf-upload input[type="file"]:focus-visible+.pdf-label {
+    box-shadow: var(--focus);
+}
+
+/* Accessibility helper: show accepted types visually */
+.pdf-label::after {
+    content: "PDF only";
+    margin-left: auto;
+    font-size: 11px;
+    color: rgba(255, 255, 255, 0.18);
+    padding-left: 10px;
+}

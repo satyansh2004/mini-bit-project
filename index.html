@@ -1,0 +1,40 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Images to PDF</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <nav id="nav"><span id="logo">Images→PDF</span></nav>
+    <div id="header_data">
+        <h1>Images to PDF</h1>
+        <p>Convert JPG images to PDF in seconds.</p>
+    </div>
+
+    
+    <div class="pdf-upload">
+        <input id="files" type="file" accept="image/png, image/jpeg, image/gif" />
+        <label for="files" class="pdf-label">
+            <span class="pdf-icon" aria-hidden="true"></span>
+            <span class="pdf-text">
+                <strong>Upload PDF</strong>
+                <small>or drag & drop, max 10MB</small>
+            </span>
+        </label>
+        <div class="pdf-meta">
+            <div class="pdf-list"></div>
+            <div class="pdf-progress" aria-hidden="true"></div>
+        </div>
+        <button id="gen" class="btn">Generate PDF</button>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/3.0.2/jspdf.umd.min.js"></script>
+    <script src="script.js"></script>
+</body>
+
+</html>
