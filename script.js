@@ -21,5 +21,6 @@ document.getElementById('gen').addEventListener('click', async () => {
 
 const nav_logo = document.getElementById("logo");
 nav_logo.addEventListener("click", ()=> {
-    window.location = "new.html";
+    window.location = "index.html";
+
 });
